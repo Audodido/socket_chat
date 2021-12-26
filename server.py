@@ -28,6 +28,8 @@ def handle_client(conn, addr):
             if msg == DISCONNECT_MESSAGE:
                 connected = False
                 conn.send('Connection ended'.encode(FORMAT))
+                print(f'[ACTIVE CONNECTIONS] {threading.activeCount() - 1}')
+                break
 
             print(f'[{addr}] {msg}')
             return_msg = input('return msg:')
