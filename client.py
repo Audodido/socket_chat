@@ -22,6 +22,4 @@ def send(msg):
 
 # send("Hey there")
 send(input("enter your message:"))
-# send("Yippee")
-# send("L@@@@@")
-send(DISCONNECT_MESSAGE ) # end connection
+send(DISCONNECT_MESSAGE)

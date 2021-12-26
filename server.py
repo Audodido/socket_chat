@@ -27,9 +27,12 @@ def handle_client(conn, addr):
             msg = conn.recv(msg_length).decode(FORMAT)
             if msg == DISCONNECT_MESSAGE:
                 connected = False
+                conn.send('Connection ended'.encode(FORMAT))
 
             print(f'[{addr}] {msg}')
-            conn.send('Msg received'.encode(FORMAT))
+            return_msg = input('return msg:')
+            conn.send(return_msg.encode(FORMAT)) #dynamic/custom return msg
+            # conn.send('Msg received'.encode(FORMAT)) #static/automated return msg
     
     conn.close()
 
